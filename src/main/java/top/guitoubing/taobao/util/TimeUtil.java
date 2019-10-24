@@ -11,6 +11,7 @@ import java.util.Date;
 public class TimeUtil {
     private static Logger logger = LogManager.getLogger(TimeUtil.class);
     private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 
     public static Long DateStringToMill(String date){
         try {
@@ -23,7 +24,7 @@ public class TimeUtil {
     }
 
     public static String getRemainingTime(TargetVO targetVO) throws ParseException {
-        return new Date(targetVO.getEndDateMill()-System.currentTimeMillis()).toString();
+        return timeFormat.format(new Date(targetVO.getEndDateMill()-System.currentTimeMillis()));
     }
 
 }

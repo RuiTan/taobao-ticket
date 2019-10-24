@@ -10,7 +10,8 @@ public class TaobaoService {
 
     public void generateTaobao(String url, String date){
         TargetVO targetVO = new TargetVO(url, date);
-        ThreadPoolUtil.getCachedThreadPool().execute(new TaobaoUtil().init(targetVO));
+        new TaobaoUtil().init(targetVO).run();
+
     }
 
 }
